@@ -32,10 +32,9 @@
 	function addToQueue() {
 		songArray.push($('#link').text());
 		/* 		document.getElementById("songs").innerHTML = songArray.toString();
-		 */$(
-				'<div class="ui segment"> <h3 class="ui header"> '
-						+ $('#query').val() + ' </h3> </div>').appendTo(
-				"#listahan");
+		 */ $('<div class="ui segment" id=' + $('#link').text() + '> <h3 class="ui header"> ' + $('#query').val() + ' </h3> </div>')
+	        .appendTo("#listahan");
+    
 	}
 
 	window.onload = init;
@@ -66,11 +65,7 @@
 				<br>
 
 					<div class="ui segment" style="height: 441px;">
-						<div class="ui animated fade button fluid blue" tabindex="0"
-							onclick="myFunction2()">
-							<div class="visible content">Play</div>
-							<div class="hidden content">Next Song</div>
-						</div>
+
 						<!--< img src="/images/vid.png" class="ui image"> </img> -->
 						<div
 							style="padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"
@@ -87,7 +82,7 @@
 						disabled="true" onclick="search();">Search</button>
 					</div> -->
 
-					<input type="text" id="query" placeholder="Add Music"> <i
+					 <input type="text" id="query" placeholder="Add Music"> <i
 						class="inverted circular search link icon" id="search-button"
 						disabled="true" onclick="search();"></i>
 				</div>
@@ -104,6 +99,12 @@
 						</div>
 					</div>
 				<br>
+
+					<div class="ui animated fade button fluid blue" tabindex="0"
+						onclick="myFunction2()">
+						<div class="visible content">Play</div>
+						<div class="hidden content">Next Song</div>
+					</div>
 				<div class="ui segments" id="listahan"></div>
 			</div>
 
