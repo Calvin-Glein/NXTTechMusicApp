@@ -13,6 +13,72 @@
 	crossorigin="anonymous">
 </script>
 
+
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyClMtfVRNRqiQ0fUb1ipzEFfD6m_Q8JTRE",
+	    authDomain: "nxttech-teamtation.firebaseapp.com",
+	    databaseURL: "https://nxttech-teamtation.firebaseio.com",
+	    projectId: "nxttech-teamtation",
+	    storageBucket: "nxttech-teamtation.appspot.com",
+	    messagingSenderId: "1034042438371"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	
+	<script type="text/javascript">
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var uid = user.uid;
+            document.getElementById("username").value = displayName;
+            document.getElementById("username").innerHTML = displayName;
+            
+          } else {
+            // User is signed out.
+	        window.alert("There was an error in logging in your Google account.");
+            window.location.href("index.jsp");
+          }
+        }, function(error) {
+          console.log(error);
+        });
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+      
+      function addRoom()
+      {
+    	  var username = document.getElementById("username").value;
+    	  console.log("username" + username);
+    		var roomName = document.getElementById("roomName").value;
+          var ref = firebase.database().ref(roomName);
+          ref.once('value', function(snapshot) {
+        	   if (snapshot.exists())
+        		{
+        		  alert ("Room name is taken.");
+        		}
+        	   else
+        		{
+         		   var obj = {"hostUsername" : username};
+	               ref.push(obj);   // Creates a new ref with a new "push key"
+	               ref.set(obj);    // Overwrites the path
+	               ref.update(obj); // Updates only the specified attributes
+	              
+        		}
+        	});
+          
+          
+    	}
+      
+    </script>
+
+
 <title>Create A Room</title>
 </head>
 <body>
@@ -21,6 +87,7 @@
 			<br>
 			<br>
 			<h1 class="ui header headerc">Guess the Song</h1>
+			<h5 id="username"></h5>
 			<div class="ui fitted divider"></div>
 			<br>
 			<div class="ui grid">
@@ -43,30 +110,21 @@
 									<div class="image">
 										<img src="images/room.jpg">
 									</div>
-									<%-- <div class="content">
-											Username
-											<div class="sub header">
-												<c:out value="${account.username}" />
-											</div>
-										</div> --%>
+									
 								</div>
 							</div>
 							<div class="ui twelve wide column">
-								<form method="POST" action="CreateRoomServlet" class="ui form">
+									
+									<form class="ui form">
 									<div class="field">
-										<label>Room Name</label> <input type="text" name="first-name"
-											placeholder="Come up with something nice">
+										<label>Room Name</label> 
+										<input type="text" id="roomName" placeholder="Come up with something nice">
 									</div>
-									<div class="field">
-										<div class="ui checkbox">
-											<input type="checkbox" tabindex="0" class="hidden"> <label>I
-												agree to the Terms and Conditions</label>
-										</div>
-									</div>
+									
+									</form>
 								<!-- type="submit" -->
 								<br>
-								<button type="submit" class="ui button blue fluid">Submit</button>
-								</form>
+								<button onclick="addRoom();" class="ui button blue fluid">Submit</button>
 									
 
 							</div>

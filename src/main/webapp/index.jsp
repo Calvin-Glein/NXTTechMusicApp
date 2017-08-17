@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<!-- test -->
+
 <link rel="stylesheet" type="text/css"
 	href="css/semantic/semantic.min.css"></link>
 <script src="css/semantic/semantic.min.js"></script>
@@ -13,52 +13,39 @@
 	crossorigin="anonymous"></script>
 
 <script src="js/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyClMtfVRNRqiQ0fUb1ipzEFfD6m_Q8JTRE",
+	    authDomain: "nxttech-teamtation.firebaseapp.com",
+	    databaseURL: "https://nxttech-teamtation.firebaseio.com",
+	    projectId: "nxttech-teamtation",
+	    storageBucket: "nxttech-teamtation.appspot.com",
+	    messagingSenderId: "1034042438371"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	
+ 	<script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: 'step1CreateRoom.jsp',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
 
-
-<!-- <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script>
-<script
-	src="https://www.gstatic.com/firebasejs/4.1.3/firebase-database.js"></script>
-<script
-	src="https://www.gstatic.com/firebasejs/4.1.3/firebase-messaging.js"></script>
-
-Leave out Storage
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-storage.js"></script>
-
-<script>
-	var config = {
-	// ...
-	};
-	firebase.initializeApp(config);
-</script>
-
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-<script>
-	// Initialize Firebase
-	var config = {
-		apiKey : "AIzaSyClMtfVRNRqiQ0fUb1ipzEFfD6m_Q8JTRE",
-		authDomain : "nxttech-teamtation.firebaseapp.com",
-		databaseURL : "https://nxttech-teamtation.firebaseio.com",
-		projectId : "nxttech-teamtation",
-		storageBucket : "nxttech-teamtation.appspot.com",
-	/* 		messagingSenderId : "1034042438371"
-	 */};
-	firebase.initializeApp(config);
-	// Get a reference to the database service
-	var database = firebase.database();
-
-	var name = "glenn";
-	var rommID = "1";
-	var userID = "2";
-
-	function writeUserData() {
-		firebase.database().ref('users/' + userID).set({
-			name : name,
-			roomID : roomID,
-		});
-	}
-</script>
- -->
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
 
 <style>
 canvas {
@@ -134,11 +121,13 @@ canvas {
 				style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-color: black; /*  border-style: solid; */ border-radius: 10px; border-style: solid; opacity: 0.9;">
 				<h1 class="ui center aligned icon header" style="z-index: 99;">
 					<br></br> <i class="music icon"></i><br></br>
-					<div class="ui center header">Guess the Song</div>
+					<div class="ui center header">GUESS THE SONG</div>
 
-					<div id="getStarted" class="ui large blue button"
+					<!-- <div id="getStarted" class="ui large blue button"
 						onclick="document.location.href='step1CreateRoom.jsp';">Get
-						Started</div>
+						Started</div> -->
+						
+						<div id="firebaseui-auth-container"></div>
 				</h1>
 				<form class="ui form" id="mobileForm">
 					<div class="field">
