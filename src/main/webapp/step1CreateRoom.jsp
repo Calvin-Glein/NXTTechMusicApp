@@ -52,7 +52,7 @@
 								</div>
 							</div>
 							<div class="ui twelve wide column">
-								<form class="ui form">
+								<form method="POST" action="CreateRoomServlet" class="ui form">
 									<div class="field">
 										<label>Room Name</label> <input type="text" name="first-name"
 											placeholder="Come up with something nice">
@@ -64,10 +64,9 @@
 										</div>
 									</div>
 								<!-- type="submit" -->
-								</form>
 								<br>
-								<button class="ui button blue fluid"
-										onclick="document.location.href='step2LoginSpotify.jsp';">Submit</button>
+								<button type="submit" class="ui button blue fluid">Submit</button>
+								</form>
 									
 
 							</div>

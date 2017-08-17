@@ -15,51 +15,6 @@
 <script src="js/jquery.min.js"></script>
 
 
-<!-- <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script>
-<script
-	src="https://www.gstatic.com/firebasejs/4.1.3/firebase-database.js"></script>
-<script
-	src="https://www.gstatic.com/firebasejs/4.1.3/firebase-messaging.js"></script>
-
-Leave out Storage
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-storage.js"></script>
-
-<script>
-	var config = {
-	// ...
-	};
-	firebase.initializeApp(config);
-</script>
-
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-<script>
-	// Initialize Firebase
-	var config = {
-		apiKey : "AIzaSyClMtfVRNRqiQ0fUb1ipzEFfD6m_Q8JTRE",
-		authDomain : "nxttech-teamtation.firebaseapp.com",
-		databaseURL : "https://nxttech-teamtation.firebaseio.com",
-		projectId : "nxttech-teamtation",
-		storageBucket : "nxttech-teamtation.appspot.com",
-	/* 		messagingSenderId : "1034042438371"
-	 */};
-	firebase.initializeApp(config);
-	// Get a reference to the database service
-	var database = firebase.database();
-
-	var name = "glenn";
-	var rommID = "1";
-	var userID = "2";
-
-	function writeUserData() {
-		firebase.database().ref('users/' + userID).set({
-			name : name,
-			roomID : roomID,
-		});
-	}
-</script>
- -->
-
 <style>
 canvas {
 	display: block;
