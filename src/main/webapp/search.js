@@ -11,6 +11,7 @@ function search() {
    request = gapi.client.youtube.search.list({
     q: q, //old one was without quotes
     part: 'id, snippet', //the parts should be in quotes as well
+    videoCategoryId: '10',
     type: 'video',
     maxResults: '5'/*,
     order: 'viewCount'*/

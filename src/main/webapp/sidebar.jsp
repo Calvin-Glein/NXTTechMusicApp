@@ -13,13 +13,13 @@
 			<div class="description">Before you play</div>
 		</div>
 	</div>
-	<div id = "second" class="step">
+	<!-- <div id = "second" class="step">
 		<i class="small spotify icon"></i>
 		<div class="content">
 			<div class="title">Spotify</div>
 			<div class="description">Almost there</div>
 		</div>
-	</div>
+	</div> -->
 	<div id = "third" class="step">
 
 		<i class="small checkmark icon"></i>

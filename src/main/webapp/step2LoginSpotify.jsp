@@ -65,7 +65,7 @@
 										in the game!</div>
 									<button onclick="init()">Got It!</button>
 
-								</div>
+								</div>	
 								<div class="ui labeled input">
 									<input id="query" value='cats' type="text" />
 

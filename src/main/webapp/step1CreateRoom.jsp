@@ -71,8 +71,8 @@
 	               ref.push(obj);   // Creates a new ref with a new "push key"
 	               ref.set(obj);    // Overwrites the path
 	               ref.update(obj); // Updates only the specified attributes
-	               window.location = "/Step2?roomName="+roomName;
-        		}
+		               window.location = "/Step2?roomName="+roomName;
+	        		}
         	});
          
     	}
