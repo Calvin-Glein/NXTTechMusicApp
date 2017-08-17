@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css"
 	href="css/semantic/semantic.min.css"></link>
 <script src="css/semantic/semantic.min.js">
+	<script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous">
@@ -30,7 +31,11 @@
 
 	function addToQueue() {
 		songArray.push($('#link').text());
-		document.getElementById("songs").innerHTML = songArray.toString();
+		/* 		document.getElementById("songs").innerHTML = songArray.toString();
+		 */$(
+				'<div class="ui segment"> <h3 class="ui header"> '
+						+ $('#query').val() + ' </h3> </div>').appendTo(
+				"#listahan");
 	}
 
 	window.onload = init;
@@ -60,58 +65,38 @@
 				</h1>
 				<br>
 
-					<div class="ui segment inverted">
+					<div class="ui segment" style="height: 441px;">
 
 						<!--< img src="/images/vid.png" class="ui image"> </img> -->
-						<div style = "padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"id="video"></div>
+						<div
+							style="padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"
+							id="video"></div>
 					</div> <br>
 				<h4 class="ui horizontal divider header">
 						<i class=" align justify icon"></i> Queue
-					</h4> <label id="link"></label>
+					</h4> <label style="color: white" id="link">XXXXX</label>
 				<div class="ui icon input fluid">
 					<input type="text" id="query" placeholder="Add Music"> <i
-						class="inverted circular search link icon" id="search-button"
-						disabled="true" onclick="search()"></i>
+						class="inverted circular plus link icon" id="search-button"
+						disabled="true" onclick="search();"></i>
 				</div>
-
-				<label>Song id List</label>
-				<div id="songs"></div>
-				<button onclick="addToQueue()">Add To Queue</button>
-				<button onclick="myFunction2()">play</button>
-
-				<div class="ui segments">
-					<div class="ui segment">
-						<h3 class="ui header">
-							Congratulations
-							<div class="sub header">Post Malone</div>
-						</h3>
+				<br>
+				<div class="field">
+					<label>Just in case you want the video URL</label>
+					<div class="ui labeled input fluid">
+						<div class="ui red label">http://youtube.com/watch?v=</div>
+						<input id="url" disabled type="text" placeholder="search first">
 					</div>
-					<div class="ui segment">
-						<h3 class="ui header">
-							Caroline
-							<div class="sub header">Amine</div>
-						</h3>
-					</div>
-					<div class="ui segment">
-						<h3 class="ui header">
-							ILYSB
-							<div class="sub header">Lany</div>
-						</h3>
-					</div>
-					<div class="ui segment">
-						<h3 class="ui header">
-							Humble
-							<div class="sub header">Kendrick Lamar</div>
-						</h3>
-					</div>
-					<div class="ui segment">
-						<h3 class="ui header">
-							Fine China
-							<div class="sub header">Chris Brown</div>
-						</h3>
-					</div>
-
 				</div>
+				<br>
+					<button class="ui right labeled icon button">
+						<i class="right arrow icon"></i> Next
+					</button>
+
+					<button onclick="addToQueue()">Add To Queue</button>
+					<button onclick="myFunction2()">play</button>
+
+					<div class="ui segments" id="listahan"></div>
 			</div>
 
 			<div class="six wide column">
@@ -212,12 +197,11 @@
 		<br></br> <br></br> <br></br>
 	</div>
 
-	<div class="ui raised segment"
+<!-- 	<div class="ui raised segment"
 		style="position: fixed; bottom: 0; width: 100%;">
 
 		<h2 class="ui header">
-			<i class="play icon"></i> <i class="play icon"></i>
-
+			<i class="volume up icon"></i>
 			<div class="content">
 				ILYSB
 				<div class="sub header">Lany</div>
@@ -225,7 +209,7 @@
 		</h2>
 	</div>
 
-
+ -->
 
 
 
@@ -241,6 +225,7 @@
 	<script>
 		var started = 0;
 		var player;
+		
 		function myFunction2() {
 			if (started == 0) {
 				myFunction();
@@ -251,10 +236,14 @@
 						videoId : songArray[0]
 					});
 				}
-				songArray.shift();
-				document.getElementById("songs").innerHTML = songArray
-						.toString();
-			}
+
+				/* 		          document.getElementById("songs").innerHTML = songArray.toString();
+				 */}
+			var firstSong = songArray[0];
+			console.log(firstSong);
+			var element = document.getElementById(firstSong);
+			element.parentNode.removeChild(element);
+			songArray.shift();
 		}
 		function myFunction() {
 
@@ -274,7 +263,7 @@
 			player = new YT.Player('player', {
 				height : '390',
 				width : '640',
-				videoId : $("#link").text(),
+				videoId : songArray[0],
 				events : {
 					'onReady' : onPlayerReady,
 					'onStateChange' : onPlayerStateChange
