@@ -56,6 +56,7 @@
       {
     	  var username = document.getElementById("username").value;
     	  console.log("username" + username);
+    	  var checker = false;
     		var roomName = document.getElementById("roomName").value;
           var ref = firebase.database().ref(roomName);
           ref.once('value', function(snapshot) {
@@ -65,16 +66,17 @@
         		}
         	   else
         		{
-         		   var obj = {"hostUsername" : username};
+        		   checker = true;
+        		   var obj = {"hostUsername" : username};
 	               ref.push(obj);   // Creates a new ref with a new "push key"
 	               ref.set(obj);    // Overwrites the path
 	               ref.update(obj); // Updates only the specified attributes
-	              
+	               window.location = "/Step2?roomName="+roomName;
         		}
         	});
-          
-          
+         
     	}
+ 
       
     </script>
 

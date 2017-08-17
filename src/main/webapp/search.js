@@ -12,8 +12,8 @@ function search() {
     q: q, //old one was without quotes
     part: 'id, snippet', //the parts should be in quotes as well
     type: 'video',
-    maxResults: '1',
-    order: 'viewCount'
+    maxResults: '5'/*,
+    order: 'viewCount'*/
  });
 
   request.execute(function(response) {
@@ -21,7 +21,7 @@ function search() {
     //console.log(response.result.items[0]);
     //var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + JSON.stringify(result.items[0].id.videoId) + '</pre>' + q);
-    video_id = JSON.stringify(result.items[0].id.videoId);
+    video_id = JSON.stringify(result.items[4].id.videoId);
     var new_id = video_id.slice(1, -1);
     $('#link').html(new_id);
     document.getElementById("search-container").innerHTML = "";

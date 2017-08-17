@@ -31,16 +31,33 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
     <script type="text/javascript">
       // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: 'step1CreateRoom.jsp',
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID
-        ],
-        // Terms of service url.
-        tosUrl: '<your-tos-url>'
-      };
-
+      
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+								.test(navigator.userAgent)) 
+      {
+	      var uiConfig = {
+	        signInSuccessUrl: 'joinRoom.jsp',
+	        signInOptions: [
+	          // Leave the lines as is for the providers you want to offer your users.
+	          firebase.auth.GoogleAuthProvider.PROVIDER_ID
+	        ],
+	        // Terms of service url.
+	        tosUrl: '<your-tos-url>'
+	      };
+      }
+      else
+		{
+    	  var uiConfig = {
+    		        signInSuccessUrl: 'step1CreateRoom.jsp',
+    		        signInOptions: [
+    		          // Leave the lines as is for the providers you want to offer your users.
+    		          firebase.auth.GoogleAuthProvider.PROVIDER_ID
+    		        ],
+    		        // Terms of service url.
+    		        tosUrl: '<your-tos-url>'
+    		      };
+		}
+    	  
       // Initialize the FirebaseUI Widget using Firebase.
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       // The start method will wait until the DOM is loaded.
@@ -68,43 +85,6 @@ canvas {
 
 
 
-<script>
-	function hideMobile() {
-		var x = document.getElementById('mobileForm');
-		if (x.style.display === 'none') {
-			x.style.display = 'block';
-
-		} else {
-			x.style.display = 'none';
-		}
-	}
-
-	$('document')
-			.ready(
-					function() {
-						if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-								.test(navigator.userAgent)) {
-							var buttonStarted = document
-									.getElementById('getStarted');
-							buttonStarted.style.display = 'none';
-
-						} else {
-							/* 		var getStartedButton = document
-											.createElement("button");
-									getStartedButton.setAttribute("class",
-											"ui large blue button");
-									getStartedButton
-											.setAttribute("onclick",
-													"document.location.href='step1CreateRoom.jsp';");
-									getStartedButton.innerHTML = "Get Started";
-
-									document.getElementById("getStarted").appendChild(
-											getStartedButton); */
-
-							hideMobile();
-						}
-					});
-</script>
 
 
 <title>Guess the song</title>
@@ -129,21 +109,7 @@ canvas {
 						
 						<div id="firebaseui-auth-container"></div>
 				</h1>
-				<form class="ui form" id="mobileForm">
-					<div class="field">
-						<label>Room Name</label> <input type="text" name="first-name"
-							placeholder="Ask your friend">
-					</div>
-					<div class="field">
-						<label>Username</label> <input type="text" name="first-name"
-							placeholder="Come up with something nice">
-					</div>
-					<div class="ui button blue fluid"
-						onclick="document.location.href='mobileRoom.jsp';">Enter</div>
-
-
-				</form>
-
+				
 
 				<script>
 					

@@ -13,7 +13,16 @@
 	crossorigin="anonymous">
 </script>
 
-<title>Login to Spotify</title>
+
+<script src="auth.js"></script>
+<script src="search.js"></script>
+<script
+	src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+<script
+	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+<script type="text/javascript"></script>
+
+<title>Search Songs</title>
 </head>
 <body>
 	<div class="container" style="background-color: white;">
@@ -31,7 +40,7 @@
 					<h3 class="ui block header">
 						<div class="ui grid">
 							<div class="eight wide column">
-								<div class="left aligned">Spotify</div>
+								<div class="left aligned">Youtube</div>
 							</div>
 						</div>
 					</h3>
@@ -42,26 +51,39 @@
 									<div class="image">
 										<img src="images/spotify.jpg">
 									</div>
-									<%-- <div class="content">
-											Username
-											<div class="sub header">
-												<c:out value="${account.username}" />
-											</div>
-										</div> --%>
+									<div class="content">
+										Youtube
+										<div class="sub header">Input song titles to be included
+											in the game!</div>
+										<button onclick="init()">Got It!</button>
+
+									</div>
 								</div>
 							</div>
-							<div class="ui twelve wide column">
-									<button class="ui button green fluid" type="submit" onclick="document.location.href='step3Confirmed.jsp';">Login
-										to Spotify</button>
 
+							<div class="ui twelve wide column">
+								<div class="ui labeled input">
+									<input id="query" value='cats' type="text" />
+
+									<button class="ui button" id="search-button" disabled="true"
+										onclick="search()">Search</button>
+
+
+									<div class="ui label">https://www.youtube.com/watch?v=</div>
+									<input id="link" type="text" placeholder="search first">
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<br> <br> <br> <br>
+	<br>
+	<br>
+	<br>
+	<br>
 	</div>
 </body>
 </html>
