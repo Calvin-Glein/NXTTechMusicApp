@@ -8,9 +8,12 @@
 <link rel="stylesheet" type="text/css"
 	href="css/semantic/semantic.min.css"></link>
 <script src="css/semantic/semantic.min.js">
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	
+</script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous">
+	
 </script>
 
 
@@ -46,22 +49,23 @@
 					</h3>
 					<div class="ui segment">
 						<div class="ui grid">
-							<div class="ui four wide column">
+							<!-- 	<div class="ui four wide column">
 								<div class="ui card">
 									<div class="image">
 										<img src="images/spotify.jpg">
 									</div>
-									<div class="content">
-										Youtube
-										<div class="sub header">Input song titles to be included
-											in the game!</div>
-										<button onclick="init()">Got It!</button>
-
-									</div>
+									
 								</div>
 							</div>
+ -->
+							<div class="ui sixteen wide column">
+								<div class="content">
+									Youtube
+									<div class="sub header">Input song titles to be included
+										in the game!</div>
+									<button onclick="init()">Got It!</button>
 
-							<div class="ui twelve wide column">
+								</div>
 								<div class="ui labeled input">
 									<input id="query" value='cats' type="text" />
 
