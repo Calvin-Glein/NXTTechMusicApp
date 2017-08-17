@@ -66,7 +66,11 @@
 				<br>
 
 					<div class="ui segment" style="height: 441px;">
-
+						<div class="ui animated fade button fluid blue" tabindex="0"
+							onclick="myFunction2()">
+							<div class="visible content">Play</div>
+							<div class="hidden content">Next Song</div>
+						</div>
 						<!--< img src="/images/vid.png" class="ui image"> </img> -->
 						<div
 							style="padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"
@@ -76,27 +80,31 @@
 						<i class=" align justify icon"></i> Queue
 					</h4> <label style="color: white" id="link">XXXXX</label>
 				<div class="ui icon input fluid">
+
+					<!-- <div class="ui action input fluid">
+						<input type="text" placeholder="Add Music">
+							<button class="ui button" id="search-button"
+						disabled="true" onclick="search();">Search</button>
+					</div> -->
+
 					<input type="text" id="query" placeholder="Add Music"> <i
-						class="inverted circular plus link icon" id="search-button"
+						class="inverted circular search link icon" id="search-button"
 						disabled="true" onclick="search();"></i>
 				</div>
 				<br>
-				<div class="field">
-					<label>Just in case you want the video URL</label>
-					<div class="ui labeled input fluid">
-						<div class="ui red label">http://youtube.com/watch?v=</div>
-						<input id="url" disabled type="text" placeholder="search first">
+					<div class="field">
+						<label>Just in case you want the video URL</label>
+						<div class="ui labeled input fluid">
+							<div class="ui label">http://youtube.com/watch?v=</div>
+							<input id="url" type="text" placeholder="search first">
+								<button class="ui blue right labeled icon button"
+									onclick="addToQueue()">
+									<i class="plus icon"></i> Add to Queue
+								</button>
+						</div>
 					</div>
-				</div>
 				<br>
-					<button class="ui right labeled icon button">
-						<i class="right arrow icon"></i> Next
-					</button>
-
-					<button onclick="addToQueue()">Add To Queue</button>
-					<button onclick="myFunction2()">play</button>
-
-					<div class="ui segments" id="listahan"></div>
+				<div class="ui segments" id="listahan"></div>
 			</div>
 
 			<div class="six wide column">
@@ -197,7 +205,7 @@
 		<br></br> <br></br> <br></br>
 	</div>
 
-<!-- 	<div class="ui raised segment"
+	<!-- 	<div class="ui raised segment"
 		style="position: fixed; bottom: 0; width: 100%;">
 
 		<h2 class="ui header">
@@ -225,7 +233,7 @@
 	<script>
 		var started = 0;
 		var player;
-		
+
 		function myFunction2() {
 			if (started == 0) {
 				myFunction();
