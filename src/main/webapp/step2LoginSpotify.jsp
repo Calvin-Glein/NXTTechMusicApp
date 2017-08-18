@@ -42,12 +42,7 @@
 									<div class="image">
 										<img src="images/spotify.jpg">
 									</div>
-									<%-- <div class="content">
-											Username
-											<div class="sub header">
-												<c:out value="${account.username}" />
-											</div>
-										</div> --%>
+									
 								</div>
 							</div>
 							<div class="ui twelve wide column">

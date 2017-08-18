@@ -35,7 +35,9 @@
             // User is signed in.
             var displayName = user.displayName;
             var uid = user.uid;
+            document.getElementById("username").value = displayName;
             document.getElementById("username").innerHTML = displayName;
+            
           } else {
             // User is signed out.
 	        window.alert("There was an error in logging in your Google account.");
@@ -52,6 +54,9 @@
       
       function addRoom()
       {
+    	  var username = document.getElementById("username").value;
+    	  console.log("username" + username);
+    	  var checker = false;
     		var roomName = document.getElementById("roomName").value;
           var ref = firebase.database().ref(roomName);
           ref.once('value', function(snapshot) {
@@ -61,16 +66,17 @@
         		}
         	   else
         		{
-         		   var obj = {"username" : "haha"};
+        		   checker = true;
+        		   var obj = {"hostUsername" : username, "isGuessed" : false, "isStarted": false, "currentSong" : ""};
 	               ref.push(obj);   // Creates a new ref with a new "push key"
 	               ref.set(obj);    // Overwrites the path
-	               ref.update(obj); // Updates only the specified attributes 
-        		   
+	               ref.update(obj); // Updates only the specified attributes
+	               window.location = "/Step2?roomName="+roomName;
         		}
         	});
-          
-          
+         
     	}
+ 
       
     </script>
 
@@ -116,12 +122,7 @@
 										<label>Room Name</label> 
 										<input type="text" id="roomName" placeholder="Come up with something nice">
 									</div>
-									<div class="field">
-										<div class="ui checkbox">
-											<input type="checkbox" tabindex="0" class="hidden"> <label>I
-												agree to the Terms and Conditions</label>
-										</div>
-									</div>
+									
 									</form>
 								<!-- type="submit" -->
 								<br>
