@@ -289,7 +289,7 @@
 							<button class="ui button" onclick="select90()">90s</button>
 							<button class="ui button" onclick="selectopm()">OPM</button>
 							<button class="ui button" onclick="selectpunk()">Punk/Emo</button>
-							<button class="ui button" onclick="selectdisney()">Disney</button>
+							<!-- <button class="ui button" onclick="selectdisney()">Disney</button> -->
 
 						</div> <br></br>
 				<h6 class="ui horizontal divider header">or</h6>
@@ -493,13 +493,17 @@
 						videoId : songArray[0]
 					});
 				}
+				
+				var firstSong = songArray[0];
+				console.log(firstSong);
+				var element = document.getElementById(firstSong);
+				element.parentNode.removeChild(element);
+				songArray.shift();
+				
+				
 				/* 		          document.getElementById("songs").innerHTML = songArray.toString();
 				 */}
-			var firstSong = songArray[0];
-			console.log(firstSong);
-			var element = document.getElementById(firstSong);
-			element.parentNode.removeChild(element);
-			songArray.shift();
+		
 			
 			
 			var roomName = "/<%=session.getAttribute("roomName")%>";
@@ -546,11 +550,18 @@
 				width : '640',
 				videoId : songArray[0],
 				origin: "http://youtube.com",
+				enablejsapi: 1,
 				events : {
 					'onReady' : onPlayerReady,
 					'onStateChange' : onPlayerStateChange
 				}
 			});
+			var firstSong = songArray[0];
+			console.log(firstSong);
+			var element = document.getElementById(firstSong);
+			element.parentNode.removeChild(element);
+			songArray.shift();
+			
 		}
 		// 4. The API will call this function when the video player is ready.
 		function onPlayerReady(event) {

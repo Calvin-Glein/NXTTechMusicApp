@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=0.8">
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
 <link rel="stylesheet" type="text/css"
 	href="css/semantic/semantic.min.css"></link>
 <script src="css/semantic/semantic.min.js"></script>

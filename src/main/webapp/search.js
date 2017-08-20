@@ -9,8 +9,8 @@ function search() {
   var q = $('#query').val();
   console.log(q);
    request = gapi.client.youtube.search.list({
-    q: q, //old one was without quotes
-    part: 'id, snippet', //the parts should be in quotes as well
+    q: q, 
+    part: 'id, snippet', 
     videoCategoryId: '10',
     type: 'video',
     videoSyndicated: 'true',
