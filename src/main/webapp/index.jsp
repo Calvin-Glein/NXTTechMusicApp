@@ -128,31 +128,14 @@ canvas {
 
 
 
-	<div class="ui longer test modal">
-		<div class="header">Profile Picture</div>
-		<div class="scrolling image content">
-			<div class="ui medium image">
-				<img src="/images/wireframe/image.png">
-			</div>
-			<div class="description">
-				<div class="ui header">Modal Header</div>
-				<p>This is an example of expanded content that will cause the
-					modal's dimmer to scroll</p>
-
-			</div>
-		</div>
-		<div class="actions">
-			<div class="ui primary approve button">
-				Proceed <i class="right chevron icon"></i>
-			</div>
-		</div>
-	</div>
 
 	<div class="ui modal" style="z-index: 10000;">
 		<i class="close icon"></i>
 		<div class="header">What is Guess The Song?</div>
 		<div class="image content">
-			<div class="image">An image can appear on left or an icon</div>
+			<div class="image">
+				<img src="images/logo.png">
+			</div>
 			<div class="description">
 				Play with 4 of your friends and determine who can be the fastest one
 				to guess the songs playing!. <br></br>

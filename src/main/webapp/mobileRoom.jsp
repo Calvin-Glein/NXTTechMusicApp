@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=0.8">
 
 <link rel="stylesheet" type="text/css"
 	href="css/semantic/semantic.min.css"></link>
@@ -235,7 +236,7 @@ canvas {
 		<div class="container" style="background-color: white;">
 			<jsp:include page="particles.jsp" />
 			<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-color: black; /*  border-style: solid; */ border-radius: 10px; border-style: solid; opacity: 0.9;">
-				<h1 class="ui center aligned icon header" style="z-index: 99;">
+				<h4 class="ui center aligned icon header" style="z-index: 99;">
 						<h3 id="playerScore"></h3>
 						<form class ="ui form">
 						<div class="field">
@@ -246,7 +247,7 @@ canvas {
 						</form>
 						<button class="ui button blue fluid" onclick="submitInput();">Enter</button>
 						
-				</h1>
+				</h4>
 						
 			</div>
 			

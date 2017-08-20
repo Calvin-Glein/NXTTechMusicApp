@@ -9,7 +9,9 @@
 	href="css/semantic/semantic.min.css"></link>
 <script src="css/semantic/semantic.min.js">
 </script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
 
 <script src="jquery-3.2.1.min.js"></script>
 
@@ -19,10 +21,10 @@
 	src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 <script
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-	
-	
-    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-	<script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
 	  // Initialize Firebase
 	  var config = {
 	    apiKey: "AIzaSyClMtfVRNRqiQ0fUb1ipzEFfD6m_Q8JTRE",
@@ -34,9 +36,9 @@
 	  };
 	  firebase.initializeApp(config);
 	</script>
-	
-	
-	<script type="text/javascript">
+
+
+<script type="text/javascript">
       initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
@@ -198,7 +200,7 @@
  
       
     </script>
-    
+
 <script>
 	var songArray;
 	$(document).ready(function() {
@@ -211,6 +213,39 @@
 	        .appendTo("#listahan");
     
 	}
+	
+	var songs;
+	var links;
+	function select90(){
+	   songs = ['everybody', 'smells like teen spirit', 'wonderwall', 'creep', 'my heart will go on', 'ice ice baby', 'waterfalls', 'truly madly deeply', 'genie in a bottle', 'i will always love you'];
+	   links = ['POq2AznJO1Q', 'zYxkezUr8MQ', 'Y7I1nCcwJP0', 'knOjd5g8XcY', '1BdPDaFXcEo', 'prN3bPmDqr4', 'HBG3hBBiYLk', 'ZkQQU_U48WU', 'xoi4MQO_swA', 'H9nPf7w7pDI'];
+	   addListToQueue();
+	}
+	function selectopm(){
+		songs = ['gemini', 'harana', 'kaleidoscope world', 'you\'ll be safe here', 'the day you said goodnight', 'hallelujah', 'huling sayaw', 'sandalan', 'ulan', 'tadhana'];
+		links = ['xflTpzKmMg8', 'Vf4WpFE47fs', 'vT8XcS48A3I', '54U2crrIyPM', 'aacL6INdzQI', 'IiYXkMFyK40', 'mWNdmz7ESkE', 'SFlrvBXbXho', 'lCPXWwDYv_g', 'zLW8xb7N7E'];
+		addListToQueue();
+	}
+	function selectpunk(){
+		songs = ['in too deep', 'ocean avenue', 'basket case', 'thnks fr th mmrs', 'i miss you', 'welcome to the black parade', 'welcome to my life', 'dirty little secret', 'i write sins not tragedies', 'that\'s what you get'];
+		links = ['fpeudpjyWS8', '9S5LA_c6WT8', 'GTwJo0HeNmU', '9iW6wx7CEDU', 'bEiexyUqZLA', 'pInrJ72eeUU', 'hBQvjtXR4qA', 'R1j9NASRQgU', 'ahXzi_nSYGA', 'wfDP7zfmluk'];
+		addListToQueue();
+	}
+	function selectdisney(){
+		songs = ['i\'ll make a man out of you', 'i can go the distance', 'a whole new world', 'part of your world', 'i see the light', 'colours of the wind', 'beauty and the beast', 'circle of life', 'how far i\'ll go', 'let it go'];
+		links = ['Jbp52Z9jRg0', '2aqpF-MwyUs', 'MJLOCAWkRoc', '3IOqRLR3Oug', 'gLSrOijxFKQ', '4i0HDygKdLM', 'jBg3SZTU_Nk', 'YLIVetkn6lE', 'i66p0_wZ9F0', 'gS8nZ8p-xnU'];
+		addListToQueue();
+	}
+
+	function addListToQueue(){
+		for(var i = 0; i < 10; i++){
+			songArray.push(links[i]);
+			$('<div class="ui segment" id=' + links[i] + '> <h3 class="ui header"> ' + songs[i] + ' </h3> </div>')
+		        .appendTo("#listahan");
+	    }
+	}
+	
+	
 	window.onload = init;
 </script>
 
@@ -245,9 +280,21 @@
 							style="padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"
 							id="video"></div>
 					</div> <br>
-				<h4 class="ui horizontal divider header">
-						<i class=" align justify icon"></i> Queue
-					</h4> <label style="color: white" id="link">XXXXX</label>
+						<h4 class="ui horizontal divider header">
+							<i class=" align justify icon"></i> Queue
+						</h4> <br>
+					<h4>Select a Playlist</h4>
+						<div class="ui basic buttons fluid">
+
+							<button class="ui button" onclick="select90()">90s</button>
+							<button class="ui button" onclick="selectopm()">OPM</button>
+							<button class="ui button" onclick="selectpunk()">Punk/Emo</button>
+							<button class="ui button" onclick="selectdisney()">Disney</button>
+
+						</div> <br></br>
+				<h6 class="ui horizontal divider header">or</h6>
+				<label style="color: white; font-size: 1px;" id="link">XXXXX</label>
+				<h4>Manually Add Songs</h4>
 				<div class="ui icon input fluid">
 
 					<!-- <div class="ui action input fluid">
@@ -256,9 +303,9 @@
 						disabled="true" onclick="search();">Search</button>
 					</div> -->
 
-					 <input type="text" id="query" placeholder="Add Music"> <i
+					<input type="text" id="query" placeholder="Search"> <i
 						class="inverted circular search link icon" id="search-button"
-						disabled="true" onclick="search();">What is this?</i>
+						disabled="true" onclick="search();"></i>
 				</div>
 				<br>
 					<div class="field">
@@ -271,15 +318,14 @@
 									<i class="plus icon"></i> Add to Queue
 								</button>
 						</div>
-					</div>
-				<br>
+					</div> <br>
 
-					<div class="ui animated fade button fluid blue" tabindex="0"
-						onclick="myFunction2()">
-						<div class="visible content">Play</div>
-						<div class="hidden content">Next Song</div>
-					</div>
-				<div class="ui segments" id="listahan"></div>
+						<div class="ui animated fade button fluid blue" tabindex="0"
+							onclick="myFunction2()">
+							<div class="visible content">Play</div>
+							<div class="hidden content">Next Song</div>
+						</div>
+						<div class="ui segments" id="listahan"></div>
 			</div>
 
 			<div class="six wide column">
@@ -307,7 +353,7 @@
 									<div class="content">
 										<h3 id="player2"></h3>
 										<div class="sub header">
-										
+
 											<h6 id="player2Score"></h6>
 										</div>
 									</div>
@@ -320,8 +366,8 @@
 								<div class="content">
 									<h3 id="player3"></h3>
 									<div class="sub header">
-									
-											<h6 id="player3Score"></h6>
+
+										<h6 id="player3Score"></h6>
 									</div>
 								</div>
 							</h2>
@@ -350,7 +396,9 @@
 										<div class="metadata">
 											<span class="date" id="player1Time"></span>
 										</div>
-										<div class="text"><h4 id="player1Guess"></h4></div>
+										<div class="text">
+											<h4 id="player1Guess"></h4>
+										</div>
 										<div class="actions">
 											<a class="reply"></a>
 										</div>
@@ -363,7 +411,9 @@
 										<div class="metadata">
 											<span class="date" id="player2Time"></span>
 										</div>
-										<div class="text"><h4 id="player2Guess"></h4></div>
+										<div class="text">
+											<h4 id="player2Guess"></h4>
+										</div>
 										<div class="actions">
 											<a class="reply"></a>
 										</div>
@@ -376,7 +426,9 @@
 										<div class="metadata">
 											<span class="date" id="player3Time"></span>
 										</div>
-										<div class="text"><h4 id="player3Guess"></h4></div>
+										<div class="text">
+											<h4 id="player3Guess"></h4>
+										</div>
 										<div class="actions">
 											<a class="reply"></a>
 										</div>
@@ -389,7 +441,9 @@
 										<div class="metadata">
 											<span class="date" id="player4Time"></span>
 										</div>
-										<div class="text"><h4 id="player4Guess"></h4></div>
+										<div class="text">
+											<h4 id="player4Guess"></h4>
+										</div>
 										<div class="actions">
 											<a class="reply"></a>
 										</div>
@@ -448,28 +502,33 @@
 			songArray.shift();
 			
 			
-			var roomName = "/<%=session.getAttribute("roomName")%>"; 
-	        var ref = firebase.database().ref(roomName);
-	        
-	       ref.once('value', function(snapshot){
-            if(snapshot.exists()){
-            	 if(snapshot.hasChild("currentSong"))
-            		 {
-            		 	var obj = {"currentSong" : $('#query').val()};
-	       
-	       				ref.update(obj);
-	       		
-	       				var obj = {"isStarted" : true};
-	       		       
-	       				ref.update(obj);
-	       				
-	       				var obj = {"isGuessed" : false};
-		       		       
-	       				ref.update(obj);
-            		 }
-            }
-	       });
-			
+			var roomName = "/<%=session.getAttribute("roomName")%>";
+			var ref = firebase.database().ref(roomName);
+
+			ref.once('value', function(snapshot) {
+				if (snapshot.exists()) {
+					if (snapshot.hasChild("currentSong")) {
+						var obj = {
+							"currentSong" : $('#query').val()
+						};
+
+						ref.update(obj);
+
+						var obj = {
+							"isStarted" : true
+						};
+
+						ref.update(obj);
+
+						var obj = {
+							"isGuessed" : false
+						};
+
+						ref.update(obj);
+					}
+				}
+			});
+
 		}
 		function myFunction() {
 			document.getElementById("video").innerHTML = "<div id='player'></div>";

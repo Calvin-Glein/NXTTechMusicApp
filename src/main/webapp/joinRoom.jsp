@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
+<meta name="viewport" content="width=device-width, initial-scale=0.8">
 <link rel="stylesheet" type="text/css"
 	href="css/semantic/semantic.min.css"></link>
 <script src="css/semantic/semantic.min.js"></script>
@@ -158,7 +158,7 @@ canvas {
 </head>
 
 <body>
-	<div id="particles-js" style="">
+	<div id="particles-js" style="position: fixed;">
 		<div class="container" style="background-color: white;">
 
 
@@ -166,7 +166,7 @@ canvas {
 
 			<div
 				style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-color: black; /*  border-style: solid; */ border-radius: 10px; border-style: solid; opacity: 0.9;">
-				<h1 class="ui center aligned icon header" style="z-index: 99;">
+				<h4 class="ui center aligned icon header" style="z-index: 99;">
 					<br></br> <i class="music icon"></i><br></br>
 					<div class="ui center header">GUESS THE SONG</div>
 
@@ -175,7 +175,7 @@ canvas {
 						Started</div> -->
 						
 						
-				</h1>
+				</h4>
 				<form class="ui form" id="mobileForm">
 					<div class="field">
 						<label>Room Name</label>
