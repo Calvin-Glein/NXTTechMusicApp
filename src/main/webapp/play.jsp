@@ -545,6 +545,7 @@
 				height : '390',
 				width : '640',
 				videoId : songArray[0],
+				origin: "http://youtube.com",
 				events : {
 					'onReady' : onPlayerReady,
 					'onStateChange' : onPlayerStateChange
