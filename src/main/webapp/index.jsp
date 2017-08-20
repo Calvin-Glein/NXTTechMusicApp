@@ -4,65 +4,62 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<script src="jquery-3.2.1.min.js"></script>
+
 
 <link rel="stylesheet" type="text/css"
 	href="css/semantic/semantic.min.css"></link>
 <script src="css/semantic/semantic.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"
-	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-	crossorigin="anonymous"></script>
 
-<script src="js/jquery.min.js"></script>
+
+
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyClMtfVRNRqiQ0fUb1ipzEFfD6m_Q8JTRE",
-	    authDomain: "nxttech-teamtation.firebaseapp.com",
-	    databaseURL: "https://nxttech-teamtation.firebaseio.com",
-	    projectId: "nxttech-teamtation",
-	    storageBucket: "nxttech-teamtation.appspot.com",
-	    messagingSenderId: "1034042438371"
-	  };
-	  firebase.initializeApp(config);
-	</script>
-	
- 	<script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
-    <script type="text/javascript">
-      // FirebaseUI config.
-      
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-								.test(navigator.userAgent)) 
-      {
-	      var uiConfig = {
-	        signInSuccessUrl: 'joinRoom.jsp',
-	        signInOptions: [
-	          // Leave the lines as is for the providers you want to offer your users.
-	          firebase.auth.GoogleAuthProvider.PROVIDER_ID
-	        ],
-	        // Terms of service url.
-	        tosUrl: '<your-tos-url>'
-	      };
-      }
-      else
-		{
-    	  var uiConfig = {
-    		        signInSuccessUrl: 'step1CreateRoom.jsp',
-    		        signInOptions: [
-    		          // Leave the lines as is for the providers you want to offer your users.
-    		          firebase.auth.GoogleAuthProvider.PROVIDER_ID
-    		        ],
-    		        // Terms of service url.
-    		        tosUrl: '<your-tos-url>'
-    		      };
-		}
-    	  
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey : "AIzaSyClMtfVRNRqiQ0fUb1ipzEFfD6m_Q8JTRE",
+		authDomain : "nxttech-teamtation.firebaseapp.com",
+		databaseURL : "https://nxttech-teamtation.firebaseio.com",
+		projectId : "nxttech-teamtation",
+		storageBucket : "nxttech-teamtation.appspot.com",
+		messagingSenderId : "1034042438371"
+	};
+	firebase.initializeApp(config);
+</script>
+
+<script
+	src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+<script type="text/javascript">
+	// FirebaseUI config.
+
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+			.test(navigator.userAgent)) {
+		var uiConfig = {
+			signInSuccessUrl : 'joinRoom.jsp',
+			signInOptions : [
+			// Leave the lines as is for the providers you want to offer your users.
+			firebase.auth.GoogleAuthProvider.PROVIDER_ID ],
+			// Terms of service url.
+			tosUrl : '<your-tos-url>'
+		};
+	} else {
+		var uiConfig = {
+			signInSuccessUrl : 'step1CreateRoom.jsp',
+			signInOptions : [
+			// Leave the lines as is for the providers you want to offer your users.
+			firebase.auth.GoogleAuthProvider.PROVIDER_ID ],
+			// Terms of service url.
+			tosUrl : '<your-tos-url>'
+		};
+	}
+
+	// Initialize the FirebaseUI Widget using Firebase.
+	var ui = new firebaseui.auth.AuthUI(firebase.auth());
+	// The start method will wait until the DOM is loaded.
+	ui.start('#firebaseui-auth-container', uiConfig);
+</script>
 
 <style>
 canvas {
@@ -106,17 +103,88 @@ canvas {
 					<!-- <div id="getStarted" class="ui large blue button"
 						onclick="document.location.href='step1CreateRoom.jsp';">Get
 						Started</div> -->
-						
-						<div id="firebaseui-auth-container"></div>
-				</h1>
-				
 
-				<script>
-					
-				</script>
+					<div id="firebaseui-auth-container"></div>
+
+					<button class="ui button basic" onclick="showWhat();">What
+						is this?</button>
+
+					<script>
+						function showWhat() {
+							$('.ui.modal').modal({
+								blurring : true
+							}).modal('show');
+
+							console.log("test");
+						}
+					</script>
+				</h1>
+
+
 			</div>
 
 		</div>
 	</div>
+
+
+
+	<div class="ui longer test modal">
+		<div class="header">Profile Picture</div>
+		<div class="scrolling image content">
+			<div class="ui medium image">
+				<img src="/images/wireframe/image.png">
+			</div>
+			<div class="description">
+				<div class="ui header">Modal Header</div>
+				<p>This is an example of expanded content that will cause the
+					modal's dimmer to scroll</p>
+
+			</div>
+		</div>
+		<div class="actions">
+			<div class="ui primary approve button">
+				Proceed <i class="right chevron icon"></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui modal" style="z-index: 10000;">
+		<i class="close icon"></i>
+		<div class="header">What is Guess The Song?</div>
+		<div class="image content">
+			<div class="image">An image can appear on left or an icon</div>
+			<div class="description">
+				Play with 4 of your friends and determine who can be the fastest one
+				to guess the songs playing!. <br></br>
+
+				<h3 class="ui header">Instructions</h3>
+				<ol class="ui list">
+					<li>Invite 4 of your friends to access this website through
+						their mobile phones</li>
+					<li>Sign in with your Google account</li>
+					<li>Name and Create a Room to host your game</li>
+					<li>Let your friends know the name of the Room you just
+						created so that they can join</li>
+					<li>Wait for all 4 players to join</li>
+					<li>Play!
+						<ol>
+							<li>Search songs the built-in Youtube player and add them on
+								the queue of songs to be played</li>
+							<li>Let your friends guess the song playing through their
+								mobile phones</li>
+						</ol>
+
+
+					</li>
+
+				</ol>
+			</div>
+		</div>
+		<div class="actions">
+			<div class="ui button">Cancel</div>
+			<div class="ui button">OK</div>
+		</div>
+	</div>
+
 </body>
 </html>

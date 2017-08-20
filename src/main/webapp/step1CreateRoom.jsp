@@ -67,12 +67,12 @@
         	   else
         		{
         		   checker = true;
-        		   var obj = {"hostUsername" : username};
+        		   var obj = {"hostUsername" : username, "isGuessed" : false, "isStarted": false, "currentSong" : ""};
 	               ref.push(obj);   // Creates a new ref with a new "push key"
 	               ref.set(obj);    // Overwrites the path
 	               ref.update(obj); // Updates only the specified attributes
-		               window.location = "/Step2?roomName="+roomName;
-	        		}
+	               window.location = "/Step2?roomName="+roomName;
+        		}
         	});
          
     	}

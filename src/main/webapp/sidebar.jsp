@@ -13,25 +13,19 @@
 			<div class="description">Before you play</div>
 		</div>
 	</div>
-	<!-- <div id = "second" class="step">
-		<i class="small spotify icon"></i>
-		<div class="content">
-			<div class="title">Spotify</div>
-			<div class="description">Almost there</div>
-		</div>
-	</div> -->
+	
 	<div id = "third" class="step">
 
 		<i class="small checkmark icon"></i>
 		<div class="content">
-			<div class="title">Confirmed</div>
+			<div class="title">Wait for players</div>
 			<div class="description">Get ready to play</div>
 		</div>
 	</div>
 	<div id = "fourth" class="step">
 		<i class="small child icon"></i>
 		<div class="content">
-			<div class="title">Done</div>
+			<div class="title">Game Lobby</div>
 			<div class="description">Play!</div>
 		</div>
 	</div>

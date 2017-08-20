@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseCredentials;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
@@ -43,7 +45,7 @@ public class CreateRoomServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		InputStream serviceAccount = this.getClass()
-		          .getResourceAsStream("//nxttech-teamtation-firebase-adminsdk-7y4x7-b28448808e.json");
+		          .getResourceAsStream("/nxttech-teamtation-firebase-adminsdk-7y4x7-b28448808e.json");
 		
 		
 		
@@ -54,6 +56,16 @@ public class CreateRoomServlet extends HttpServlet {
 
 				FirebaseApp.initializeApp(options);
 				
+				 FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+				// Initialize the default app
+				 FirebaseApp defaultApp = FirebaseApp.initializeApp(options);
+
+				 System.out.println(defaultApp.getName());  // "[DEFAULT]"
+
+				 // Retrieve services by passing the defaultApp variable...
+				 FirebaseAuth defaultAuth = FirebaseAuth.getInstance(defaultApp);
+				 FirebaseDatabase defaultDatabase = FirebaseDatabase.getInstance(defaultApp);
 				
 		RequestDispatcher rd = request.getRequestDispatcher("step2LoginSpotify.jsp");
 		rd.forward(request, response);

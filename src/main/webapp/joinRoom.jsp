@@ -66,46 +66,67 @@
         		{
         		   if(!snapshot.hasChild("player1"))
        			   {
-        			   var obj = {"player1" : username};
-    	               ref.push(obj);   // Creates a new ref with a new "push key"
+        			   var obj = {"player1" : 
+			        			   {"username" : username, 
+			        			   "playerScore" : 0,
+			        			   "timeInput" : 0,
+				        			"playerInput" : ""},
+			        			   };
+        		
     	               ref.update(obj); // Updates only the specified attributes
             		   
-            		   window.location = "mobileRoom.jsp";
+
+    	               window.location = "/JoinGame?roomName="+roomName+"&username="+username+"&player=player1";
        			   }
         		   else if(!snapshot.hasChild("player2"))
        			   {
-        			   var obj = {"player2" : username};
-    	               ref.push(obj);   // Creates a new ref with a new "push key"
+        			   var obj = {"player2" : 
+        			   {"username" : username, 
+	        			   "playerScore" : 0,
+	        			   "timeInput" : 0,
+		        		   "playerInput" : ""},
+	        			   };
     	               ref.update(obj); // Updates only the specified attributes
-            		   
-            		   window.location = "mobileRoom.jsp";
+
+    	               window.location = "/JoinGame?roomName="+roomName+"&username="+username+"&player=player2";
        			   }
         		   else if(!snapshot.hasChild("player3"))
        			   {
-        			   var obj = {"player3" : username};
-    	               ref.push(obj);   // Creates a new ref with a new "push key"
-    	               ref.update(obj); // Updates only the specified attributes
+        			   var obj = {"player3" : 
+        			   {"username" : username, 
+        			   "playerScore" : 0,
+        			   "timeInput" : 0,
+	        		   "playerInput" : ""},
+        			   };
+        			   ref.update(obj); // Updates only the specified attributes
             		   
-            		   window.location = "mobileRoom.jsp";
-       			   }
+					    window.location = "/JoinGame?roomName="+roomName+"&username="+username+"&player=player3";
+    	           }
         		   else if(!snapshot.hasChild("player4"))
        			   {
-        			   var obj = {"player4" : username};
-    	               ref.push(obj);   // Creates a new ref with a new "push key"
-    	               ref.update(obj); // Updates only the specified attributes
-            		   
-            		   window.location = "mobileRoom.jsp";
+        			   var obj = {"player4" : 
+        			   {"username" : username, 
+        			   "playerScore" : 0,
+        			   "timeInput" : 0,
+	        			"playerInput" : ""},
+        			   };
+        			   ref.update(obj); // Updates only the specified attributes
+    	               window.location = "/JoinGame?roomName="+roomName+"&username="+username+"&player=player4";
+    	        		
        			   }
+        		   else if(snapshot.hasChild("player1") 
+        				   && snapshot.hasChild("player2")
+        				   && snapshot.hasChild("player3")
+        				   && snapshot.hasChild("player4"))
+        			   {
+        			   alert("Room is already full!");
+   	        		
+        			   }
         		   else
-       			   {
-        			   alert("Room is full!");
-       			   }
-        		   
+	        		{
+	        		   alert("Room does not exist!");
+	        		 }
         		}
-        	   else
-        		{
-        		   alert("Room does not exist!");
-        		 }
         	});
          
     	}
